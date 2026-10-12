@@ -1,0 +1,1285 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nellow Media | Photography & Films</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Poppins', sans-serif;
+                scroll-behavior: smooth;
+            }
+
+            body {
+                background-color: #07070d;
+                color: #ffffff;
+                overflow-x: hidden;
+            }
+
+            /* Subtle Purple / Blue Gradient Background with Orangered Accents */
+            .bg-gradient-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: radial-gradient(circle at 15% 20%, rgba(90, 45, 140, 0.22) 0%, transparent 45%), radial-gradient(circle at 85% 80%, rgba(30, 80, 160, 0.18) 0%, transparent 45%), radial-gradient(circle at 50% 50%, rgba(255, 87, 34, 0.05) 0%, transparent 60%), #07070d;
+                z-index: -2;
+                pointer-events: none;
+            }
+
+            .bg-video-container {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                overflow: hidden;
+                z-index: -3;
+            }
+
+            #bg-video {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                filter: brightness(75%) blur(6px);
+                opacity: 0.6;
+            }
+
+            header {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px 30px;
+                background: rgba(15, 13, 25, 0.75);
+                backdrop-filter: blur(16px);
+                -webkit-backdrop-filter: blur(16px);
+                border-bottom: 1px solid rgba(176, 132, 204, 0.12);
+                z-index: 1000;
+            }
+
+            .logo-container {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+            .logo-small {
+                height: 40px;
+                width: 40px;
+                object-fit: cover;
+                border-radius: 50%;
+                border: 2px solid #b084cc;
+            }
+
+            .logo-text {
+                color: #fff;
+                font-weight: 600;
+                font-size: 1rem;
+                letter-spacing: 0.5px;
+            }
+
+            nav ul {
+                display: flex;
+                list-style: none;
+                gap: 22px;
+                align-items: center;
+            }
+
+                nav ul li a {
+                    color: #e2e2e2;
+                    text-decoration: none;
+                    font-size: 14px;
+                    font-weight: 500;
+                    transition: color 0.3s ease;
+                }
+
+                    nav ul li a:hover {
+                        color: #ff5722;
+                    }
+
+            .nav-whatsapp {
+                background: linear-gradient(135deg, #25D366, #1ebe57);
+                color: #fff !important;
+                padding: 7px 16px;
+                border-radius: 20px;
+                font-weight: 600 !important;
+                box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+                transition: transform 0.2s ease !important;
+            }
+
+                .nav-whatsapp:hover {
+                    transform: scale(1.05);
+                }
+
+            .hero {
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                padding: 0 20px;
+                position: relative;
+            }
+
+            .logo-center {
+                max-width: 160px;
+                width: 35%;
+                border-radius: 16px;
+                margin-bottom: 20px;
+                box-shadow: 0 10px 30px rgba(176, 132, 204, 0.2);
+                border: 2px solid rgba(176, 132, 204, 0.4);
+                animation: floatLogo 4s ease-in-out infinite;
+            }
+
+            @@keyframes floatLogo {
+                0%, 100% {
+                    transform: translateY(0);
+                }
+
+                50% {
+                    transform: translateY(-10px);
+                }
+            }
+
+            .hero h1 {
+                font-size: clamp(2.2rem, 5vw, 3.8rem);
+                font-weight: 700;
+                letter-spacing: 1px;
+                margin-bottom: 5px;
+                background: linear-gradient(135deg, #ffffff 40%, #b084cc 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            .hero p {
+                font-size: clamp(0.9rem, 2vw, 1.15rem);
+                color: #bfaed6;
+                margin-bottom: 35px;
+                font-weight: 400;
+            }
+
+            .scroll-down {
+                position: absolute;
+                bottom: 30px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                color: #fff;
+                text-decoration: none;
+                font-size: 13px;
+                opacity: 0.8;
+                transition: opacity 0.3s;
+            }
+
+                .scroll-down:hover {
+                    opacity: 1;
+                    color: #ff5722;
+                }
+
+                .scroll-down i {
+                    margin-top: 5px;
+                    animation: bounce 2s infinite;
+                }
+
+            @@keyframes bounce {
+                0%, 20%, 50%, 80%, 100% {
+                    transform: translateY(0);
+                }
+
+                40% {
+                    transform: translateY(-8px);
+                }
+
+                60% {
+                    transform: translateY(-4px);
+                }
+            }
+
+            .section-container {
+                padding: 90px 20px;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            .section-title {
+                text-align: center;
+                font-size: 2.3rem;
+                margin-bottom: 12px;
+                font-weight: 700;
+                background: linear-gradient(135deg, #fff, #b084cc);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            .section-subtitle {
+                text-align: center;
+                color: #aaa;
+                font-size: 0.95rem;
+                margin-bottom: 45px;
+            }
+
+            .folders-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 25px;
+            }
+
+            .folder-card {
+                background: rgba(255, 255, 255, 0.03);
+                border: 1px solid rgba(176, 132, 204, 0.15);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                border-radius: 16px;
+                overflow: hidden;
+                cursor: pointer;
+                transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease, border-color 0.4s;
+                box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            }
+
+                .folder-card:hover {
+                    transform: translateY(-8px);
+                    box-shadow: 0 12px 40px 0 rgba(255, 87, 34, 0.15);
+                    border-color: rgba(255, 87, 34, 0.4);
+                }
+
+            .folder-thumb {
+                height: 200px;
+                width: 100%;
+                object-fit: cover;
+                background-color: #050505;
+                transition: transform 0.5s ease;
+            }
+
+            .folder-card:hover .folder-thumb {
+                transform: scale(1.05);
+            }
+
+            .folder-info {
+                padding: 22px;
+                text-align: center;
+            }
+
+                .folder-info h3 {
+                    font-size: 1.2rem;
+                    font-weight: 600;
+                    margin-bottom: 5px;
+                }
+
+                .folder-info p {
+                    font-size: 0.85rem;
+                    color: #bfaed6;
+                }
+
+            .pricing-section {
+                background: rgba(15, 12, 24, 0.6);
+                border-top: 1px solid rgba(176, 132, 204, 0.1);
+                border-bottom: 1px solid rgba(176, 132, 204, 0.1);
+                padding: 90px 20px;
+            }
+
+            .pricing-tabs {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 10px;
+                margin-bottom: 40px;
+            }
+
+            .tab-btn {
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid rgba(176, 132, 204, 0.2);
+                color: #fff;
+                padding: 10px 22px;
+                border-radius: 30px;
+                cursor: pointer;
+                font-size: 0.9rem;
+                font-weight: 500;
+                transition: all 0.3s ease;
+            }
+
+                .tab-btn:hover, .tab-btn.active {
+                    background: linear-gradient(135deg, #b084cc, #8a58ab);
+                    border-color: #b084cc;
+                    box-shadow: 0 4px 15px rgba(176, 132, 204, 0.3);
+                }
+
+            .pricing-category-container {
+                display: none;
+                max-width: 1200px;
+                margin: 0 auto;
+                animation: fadeIn 0.4s ease forwards;
+            }
+
+                .pricing-category-container.active {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+                    gap: 25px;
+                }
+
+            .price-card {
+                background: rgba(25, 20, 38, 0.65);
+                border: 1px solid rgba(176, 132, 204, 0.15);
+                border-radius: 20px;
+                padding: 32px;
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                transition: transform 0.3s ease, border-color 0.3s;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            }
+
+                .price-card.featured {
+                    border-color: #ff5722;
+                    background: rgba(30, 22, 45, 0.85);
+                    box-shadow: 0 12px 35px rgba(255, 87, 34, 0.18);
+                }
+
+                .price-card:hover {
+                    transform: translateY(-6px);
+                    border-color: #b084cc;
+                }
+
+            .badge-popular {
+                position: absolute;
+                top: -14px;
+                right: 25px;
+                background: linear-gradient(135deg, #ff5722, #f44336);
+                color: #fff;
+                font-size: 0.75rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                padding: 5px 14px;
+                border-radius: 20px;
+                letter-spacing: 0.5px;
+                box-shadow: 0 4px 10px rgba(255, 87, 34, 0.4);
+            }
+
+            .tier-name {
+                font-size: 1.1rem;
+                font-weight: 600;
+                color: #bfaed6;
+                margin-bottom: 8px;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+
+            .tier-price {
+                font-size: 2.2rem;
+                font-weight: 700;
+                color: #fff;
+                margin-bottom: 20px;
+            }
+
+                .tier-price span {
+                    font-size: 0.9rem;
+                    font-weight: 400;
+                    color: #aaa;
+                }
+
+            .tier-features {
+                list-style: none;
+                margin-bottom: 30px;
+                flex-grow: 1;
+            }
+
+                .tier-features li {
+                    font-size: 0.9rem;
+                    color: #ddd;
+                    padding: 9px 0;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                }
+
+                    .tier-features li i {
+                        color: #25D366;
+                        font-size: 0.95rem;
+                    }
+
+            .book-package-btn {
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                gap: 8px;
+                background: rgba(255, 255, 255, 0.08);
+                border: 1px solid rgba(176, 132, 204, 0.3);
+                color: #fff;
+                padding: 12px;
+                border-radius: 12px;
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 0.9rem;
+                transition: all 0.3s ease;
+            }
+
+            .price-card.featured .book-package-btn {
+                background: linear-gradient(135deg, #ff5722, #e64a19);
+                border-color: #ff5722;
+                box-shadow: 0 4px 15px rgba(255, 87, 34, 0.3);
+            }
+
+            .book-package-btn:hover {
+                background: #b084cc;
+                border-color: #b084cc;
+                color: #000;
+            }
+
+            .price-card.featured .book-package-btn:hover {
+                background: #f4511e;
+                color: #fff;
+            }
+
+            .services-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                gap: 25px;
+                margin-top: 20px;
+            }
+
+            .service-card {
+                background: rgba(255, 255, 255, 0.03);
+                border: 1px solid rgba(255, 255, 255, 0.07);
+                backdrop-filter: blur(10px);
+                border-radius: 16px;
+                padding: 32px 24px;
+                text-align: left;
+                position: relative;
+                overflow: hidden;
+                transition: all 0.3s ease;
+            }
+
+                .service-card::after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 4px;
+                    height: 100%;
+                    background: linear-gradient(to bottom, #b084cc, #ff5722);
+                    opacity: 0.7;
+                }
+
+                .service-card:hover {
+                    background: rgba(255, 255, 255, 0.05);
+                    border-color: rgba(176, 132, 204, 0.3);
+                    transform: translateY(-5px);
+                }
+
+                .service-card i {
+                    font-size: 2.2rem;
+                    color: #b084cc;
+                    margin-bottom: 18px;
+                }
+
+                .service-card h4 {
+                    font-size: 1.2rem;
+                    margin-bottom: 10px;
+                    font-weight: 600;
+                }
+
+                .service-card p {
+                    font-size: 0.88rem;
+                    color: #ccc;
+                    line-height: 1.6;
+                }
+
+            .gallery-view {
+                display: none;
+                padding: 100px 20px 60px 20px;
+                max-width: 1200px;
+                margin: 0 auto;
+                animation: fadeIn 0.5s ease forwards;
+            }
+
+            @@keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .back-btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                background: rgba(255, 255, 255, 0.08);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                color: #fff;
+                padding: 8px 18px;
+                border-radius: 30px;
+                cursor: pointer;
+                font-size: 14px;
+                margin-bottom: 30px;
+                transition: background 0.3s;
+                backdrop-filter: blur(5px);
+            }
+
+                .back-btn:hover {
+                    background: rgba(255, 255, 255, 0.2);
+                    color: #ff5722;
+                }
+
+            .image-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+                gap: 20px;
+            }
+
+            .image-item {
+                border-radius: 12px;
+                overflow: hidden;
+                background: rgba(255,255,255,0.03);
+                border: 1px solid rgba(255,255,255,0.08);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 8px;
+            }
+
+                .image-item img, .image-item video {
+                    width: 100%;
+                    height: auto;
+                    max-height: 450px;
+                    object-fit: cover;
+                    border-radius: 8px;
+                    transition: transform 0.3s ease;
+                    cursor: pointer;
+                }
+
+                    .image-item img:hover {
+                        transform: scale(1.02);
+                    }
+
+            .lightbox-modal {
+                display: none;
+                position: fixed;
+                z-index: 2000;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.9);
+                backdrop-filter: blur(8px);
+                justify-content: center;
+                align-items: center;
+                padding: 20px;
+            }
+
+            .lightbox-content {
+                max-width: 90%;
+                max-height: 85vh;
+                object-fit: contain;
+                border-radius: 8px;
+                box-shadow: 0 5px 30px rgba(0,0,0,0.8);
+                animation: zoomIn 0.3s ease;
+            }
+
+            @@keyframes zoomIn {
+                from {
+                    transform: scale(0.9);
+                    opacity: 0;
+                }
+
+                to {
+                    transform: scale(1);
+                    opacity: 1;
+                }
+            }
+
+            .lightbox-close {
+                position: absolute;
+                top: 25px;
+                right: 30px;
+                background: rgba(255, 255, 255, 0.1);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                color: #fff;
+                font-size: 20px;
+                width: 45px;
+                height: 45px;
+                border-radius: 50%;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background 0.3s;
+            }
+
+                .lightbox-close:hover {
+                    background: rgba(255, 255, 255, 0.3);
+                }
+
+            .contact-section {
+                padding: 90px 20px;
+                max-width: 600px;
+                margin: 0 auto;
+                text-align: center;
+            }
+
+            .running-cameraman {
+                position: absolute;
+                bottom: 15%;
+                left: -150px;
+                width: 130px;
+                height: auto;
+                z-index: 2;
+                pointer-events: none;
+                animation: runAcross 18s linear infinite;
+            }
+
+            @@keyframes runAcross {
+                0% {
+                    left: -150px;
+                    transform: scaleX(1);
+                }
+
+                49% {
+                    transform: scaleX(1);
+                }
+
+                50% {
+                    left: calc(100% + 50px);
+                    transform: scaleX(-1);
+                }
+
+                99% {
+                    transform: scaleX(-1);
+                }
+
+                100% {
+                    left: -150px;
+                    transform: scaleX(1);
+                }
+            }
+
+            .whatsapp-btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 12px;
+                background: linear-gradient(135deg, #25D366, #1ebe57);
+                color: #fff;
+                padding: 14px 32px;
+                border-radius: 50px;
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 16px;
+                box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+                transition: transform 0.3s, background-color 0.3s;
+                margin-top: 20px;
+            }
+
+                .whatsapp-btn:hover {
+                    transform: scale(1.05);
+                }
+
+            footer {
+                text-align: center;
+                padding: 30px 20px;
+                font-size: 0.85rem;
+                color: #888;
+                border-top: 1px solid rgba(255,255,255,0.05);
+                background: rgba(5, 4, 10, 0.8);
+            }
+
+                footer span {
+                    color: #b084cc;
+                }
+    </style>
+</head>
+<body>
+
+    <div class="bg-video-container">
+        <video autoplay muted loop id="bg-video" playsinline>
+            <source src="./images/background.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="bg-gradient-overlay"></div>
+
+    <header>
+        <a onclick="showHome()" class="logo-container">
+            <img src="./images/logo-small.png" alt="Logo" class="logo-small" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&auto=format&fit=crop&q=80'" />
+            <span class="logo-text">Nellow Media</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#work" onclick="showHome()">Work</a></li>
+                <li><a href="#packages" onclick="showHome()">Packages</a></li>
+                <li><a href="#services" onclick="showHome()">Services</a></li>
+                <li><a href="#contact" onclick="showHome()">Contact</a></li>
+                <li><a href="https://wa.me/27820729075?text=Hi%20Nellow%20Media,%20I%20would%20like%20to%20book%20a%20session!" target="_blank" class="nav-whatsapp"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="home-view">
+        <section class="hero">
+            <img src="./images/cameraman.gif" alt="Running Cameraman" class="running-cameraman" onerror="this.style.display='none'" />
+            <img src="./images/logo-center.png" alt="Nellow Media Center Logo" class="logo-center" onerror="this.src='https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=300&auto=format&fit=crop&q=80'" />
+            <h1>Nellow Media</h1>
+            <p>PREMIUM PHOTOGRAPHY & FILMS COMPANY</p>
+            <a href="#work" class="scroll-down">
+                Explore Portfolio & Packages
+                <i class="fa-solid fa-chevron-down"></i>
+            </a>
+        </section>
+
+        <section id="work" class="section-container">
+            <h2 class="section-title">Explore Categories</h2>
+            <p class="section-subtitle">Click any folder to view our full collection of captured moments</p>
+            <div class="folders-grid">
+                <div class="folder-card" onclick="openCategory('Portraits')">
+                    <img id="thumb-Portraits" src="" alt="Portraits" class="folder-thumb" />
+                    <div class="folder-info">
+                        <h3>Portraits</h3>
+                        <p>View Collection</p>
+                    </div>
+                </div>
+
+                <div class="folder-card" onclick="openCategory('Weddings')">
+                    <img id="thumb-Weddings" src="" alt="Weddings" class="folder-thumb" />
+                    <div class="folder-info">
+                        <h3>Wedding / Umshado</h3>
+                        <p>View Collection</p>
+                    </div>
+                </div>
+
+                <div class="folder-card" onclick="openCategory('Zulu Events')">
+                    <img id="thumb-Zulu Events" src="" alt="Zulu Events" class="folder-thumb" />
+                    <div class="folder-info">
+                        <h3>Zulu Events / Ceremonies</h3>
+                        <p>View Collection</p>
+                    </div>
+                </div>
+
+                <div class="folder-card" onclick="openCategory('Birthday Parties')">
+                    <img id="thumb-Birthday Parties" src="" alt="Birthday Parties" class="folder-thumb" />
+                    <div class="folder-info">
+                        <h3>Birthday Parties</h3>
+                        <p>View Collection</p>
+                    </div>
+                </div>
+
+                <div class="folder-card" onclick="openCategory('Drone Shots')">
+                    <img id="thumb-Drone Shots" src="" alt="Drone Shots" class="folder-thumb" />
+                    <div class="folder-info">
+                        <h3>Drone Photography</h3>
+                        <p>View Collection</p>
+                    </div>
+                </div>
+
+                <div class="folder-card" onclick="openCategory('Graduation')">
+                    <img id="thumb-Graduation" src="" alt="Graduation" class="folder-thumb" />
+                    <div class="folder-info">
+                        <h3>Graduation</h3>
+                        <p>View Collection</p>
+                    </div>
+                </div>
+
+                <div class="folder-card" onclick="openCategory('Videos')">
+                    <img id="thumb-Videos" src="" alt="Videos" class="folder-thumb" />
+                    <div class="folder-info">
+                        <h3>Videos</h3>
+                        <p>View Collection</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="packages" class="pricing-section">
+            <div class="section-container" style="padding: 0 20px;">
+                <h2 class="section-title">Packages & Pricing</h2>
+                <p class="section-subtitle">Choose the perfect tier tailored for your special occasion</p>
+
+                <div class="pricing-tabs">
+                    <button class="tab-btn active" onclick="switchPricingTab('zulu')"><i class="fa-solid fa-drum"></i> Zulu Events / Ceremonies</button>
+                    <button class="tab-btn" onclick="switchPricingTab('wedding')"><i class="fa-solid fa-ring"></i> Wedding / Umshado</button>
+                    <button class="tab-btn" onclick="switchPricingTab('birthday')"><i class="fa-solid fa-cake-candles"></i> Birthday Parties</button>
+                    <button class="tab-btn" onclick="switchPricingTab('portrait')"><i class="fa-solid fa-camera"></i> Portraits</button>
+                    <button class="tab-btn" onclick="switchPricingTab('drone')"><i class="fa-solid fa-helicopter"></i> Drone Photography</button>
+                </div>
+
+                <!-- 1. Zulu Events / Ceremonies -->
+                <div id="pricing-zulu" class="pricing-category-container active">
+                    <div class="price-card">
+                        <div class="tier-name">Standard Tier</div>
+                        <div class="tier-price">R 4,500 <span>/ event</span></div>
+                        <ul class="tier-features">
+                            <li><i class="fa-solid fa-check"></i> 6 Hours Professional Coverage</li>
+                            <li><i class="fa-solid fa-check"></i> 1 Lead Photographer</li>
+                            <li><i class="fa-solid fa-check"></i> 100+ High-Res Edited Digital Photos</li>
+                            <li><i class="fa-solid fa-check"></i> Secure Online Web Gallery</li>
+                            <li><i class="fa-solid fa-check"></i> 5-7 Business Days Delivery</li>
+                        </ul>
+                        <a href="https://wa.me/27820729075?text=Hi%20Nellow%20Media,%20I%20would%20like%20to%20book%20the%20Zulu%20Events%20Standard%20Package%20(R4,500)." target="_blank" class="book-package-btn">Book via WhatsApp</a>
+                    </div>
+
+                    <div class="price-card featured">
+                        <div class="badge-popular">Most Popular</div>
+                        <div class="tier-name">Gold Tier</div>
+                        <div class="tier-price">R 6,500 <span>/ event</span></div>
+                        <ul class="tier-features">
+                            <li><i class="fa-solid fa-check"></i> Full Day Event Coverage (Up to 7 Hours)</li>
+                            <li><i class="fa-solid fa-check"></i> 2 Professional Photographers</li>
+                            <li><i class="fa-solid fa-check"></i> 250+ High-Res Edited Digital Photos</li>
+                            <li><i class="fa-solid fa-check"></i> Cinematic Highlights Video (2 mins)</li>
+                            <li><i class="fa-solid fa-check"></i> Standard Memory Photobook Included</li>
+                        </ul>
+                        <a href="https://wa.me/27820729075?text=Hi%20Nellow%20Media,%20I%20would%20like%20to%20book%20the%20Zulu%20Events%20Gold%20Package%20(R6,500)." target="_blank" class="book-package-btn">Book via WhatsApp</a>
+                    </div>
+
+                    <div class="price-card">
+                        <div class="tier-name">Platinum Tier</div>
+                        <div class="tier-price">R 9,500 <span>/ event</span></div>
+                        <ul class="tier-features">
+                            <li><i class="fa-solid fa-check"></i> Unlimited Day & Evening Coverage</li>
+                            <li><i class="fa-solid fa-check"></i> 2 Photographers</li>
+                            <li><i class="fa-solid fa-check"></i> 400+ Edited Photos + Full Video Edit</li>
+                            <li><i class="fa-solid fa-check"></i> Complimentary Drone Aerial Coverage</li>
+                            <li><i class="fa-solid fa-check"></i> Premium Luxury Hardcover Photobook</li>
+                        </ul>
+                        <a href="https://wa.me/27820729075?text=Hi%20Nellow%20Media,%20I%20would%20like%20to%20book%20the%20Zulu%20Events%20Platinum%20Package%20(R9,500)." target="_blank" class="book-package-btn">Book via WhatsApp</a>
+                    </div>
+                </div>
+
+                <!-- 2. Wedding / Umshado -->
+                <div id="pricing-wedding" class="pricing-category-container">
+                    <div class="price-card">
+                        <div class="tier-name">Standard Wedding</div>
+                        <div class="tier-price">R 5,000 <span>/ wedding</span></div>
+                        <ul class="tier-features">
+                            <li><i class="fa-solid fa-check"></i> Ceremony & Reception Coverage (5 Hrs)</li>
+                            <li><i class="fa-solid fa-check"></i> 1 Lead Photographer</li>
+                            <li><i class="fa-solid fa-check"></i> 150+ Edited Photos</li>
+                            <li><i class="fa-solid fa-check"></i> Online Digital Gallery Download</li>
+                        </ul>
+                        <a href="https://wa.me/27820729075?text=Hi%20Nellow%20Media,%20I%20would%20like%20to%20book%20the%20Wedding%20Standard%20Package%20(R5,000)." target="_blank" class="book-package-btn">Book via WhatsApp</a>
+                    </div>
+
+                    <div class="price-card featured">
+                        <div class="badge-popular">Most Popular</div>
+                        <div class="tier-name">Gold Wedding</div>
+                        <div class="tier-price">R 8,500 <span>/ wedding</span></div>
+                        <ul class="tier-features">
+                            <li><i class="fa-solid fa-check"></i> Preparation to Reception Full Coverage</li>
+                            <li><i class="fa-solid fa-check"></i> 1 Professional Photographer</li>
+                            <li><i class="fa-solid fa-check"></i> 350+ Edited High-Res Photos</li>
+                            <li><i class="fa-solid fa-check"></i> Cinematic Wedding Highlight Film (3-5 mins)</li>
+                            <li><i class="fa-solid fa-check"></i> Basic Drone Aerial Included</li>
+                            <li><i class="fa-solid fa-check"></i> Standard Couple Photobook Included</li>
+                        </ul>
+                        <a href="https://wa.me/27820729075?text=Hi%20Nellow%20Media,%20I%20would%20like%20to%20book%20the%20Wedding%20Gold%20Package%20(R8,500)." target="_blank" class="book-package-btn">Book via WhatsApp</a>
+                    </div>
+
+                    <div class="price-card">
+                        <div class="tier-name">Platinum Wedding</div>
+                        <div class="tier-price">R 13,000 <span>/ wedding</span></div>
+                        <ul class="tier-features">
+                            <li><i class="fa-solid fa-check"></i> All-Day VIP Wedding Experience</li>
+                            <li><i class="fa-solid fa-check"></i> 2 Photographers </li>
+                            <li><i class="fa-solid fa-check"></i> 600+ Edited Photos + Full Length Video</li>
+                            <li><i class="fa-solid fa-check"></i> Drone Aerial Cinematography Included</li>
+                            <li><i class="fa-solid fa-check"></i> Luxury Leather-Bound Wedding Photobook</li>
+                        </ul>
+                        <a href="https://wa.me/27820729075?text=Hi%20Nellow%20Media,%20I%20would%20like%20to%20book%20the%20Wedding%20Platinum%20Package%20(R13,000)." target="_blank" class="book-package-btn">Book via WhatsApp</a>
+                    </div>
+                </div>
+
+                <!-- 3. Birthday Parties -->
+                <div id="pricing-birthday" class="pricing-category-container">
+                    <div class="price-card">
+                        <div class="tier-name">Standard Birthday</div>
+                        <div class="tier-price">R 700 <span>/ party</span></div>
+                        <ul class="tier-features">
+                            <li><i class="fa-solid fa-check"></i> 2 Hours Event Coverage</li>
+                            <li><i class="fa-solid fa-check"></i> 1 Photographer</li>
+                            <li><i class="fa-solid fa-check"></i> 60+ Edited Photos</li>
+                            <li><i class="fa-solid fa-check"></i> Fast Online Delivery</li>
+                        </ul>
+                        <a href="https://wa.me/27820729075?text=Hi%20Nellow%20Media,%20I%20would%20like%20to%20book%20the%20Birthday%20Standard%20Package%20(R700)." target="_blank" class="book-package-btn">Book via WhatsApp</a>
+                    </div>
+
+                    <div class="price-card featured">
+                        <div class="badge-popular">Most Popular</div>
+                        <div class="tier-name">Gold Birthday</div>
+                        <div class="tier-price">R 1,200 <span>/ party</span></div>
+                        <ul class="tier-features">
+                            <li><i class="fa-solid fa-check"></i> 4 Hours Complete Coverage</li>
+                            <li><i class="fa-solid fa-check"></i> 1 Photographer + Lighting Setup</li>
+                            <li><i class="fa-solid fa-check"></i> 130+ Edited High-Res Photos</li>
+                            <li><i class="fa-solid fa-check"></i> Short Birthday Reel Video (Reels/TikTok)</li>
+                        </ul>
+                        <a href="https://wa.me/27820729075?text=Hi%20Nellow%20Media,%20I%20would%20like%20to%20book%20the%20Birthday%20Gold%20Package%20(R1,200)." target="_blank" class="book-package-btn">Book via WhatsApp</a>
+                    </div>
+
+                    <div class="price-card">
+                        <div class="tier-name">Platinum Birthday</div>
+                        <div class="tier-price">R 2,000 <span>/ party</span></div>
+                        <ul class="tier-features">
+                            <li><i class="fa-solid fa-check"></i> Unlimited Party Duration</li>
+                            <li><i class="fa-solid fa-check"></i> 1 Professional Shooter</li>
+                            <li><i class="fa-solid fa-check"></i> 250+ Edited Photos + Cinematic Video</li>
+                            <li><i class="fa-solid fa-check"></i> Keepsake Mini Photobook Included</li>
+                        </ul>
+                        <a href="https://wa.me/27820729075?text=Hi%20Nellow%20Media,%20I%20would%20like%20to%20book%20the%20Birthday%20Platinum%20Package%20(R2,000)." target="_blank" class="book-package-btn">Book via WhatsApp</a>
+                    </div>
+                </div>
+
+                <!-- 4. Portraits -->
+                <div id="pricing-portrait" class="pricing-category-container">
+                    <div class="price-card">
+                        <div class="tier-name">Standard Portrait</div>
+                        <div class="tier-price">R 350 <span>/ session</span></div>
+                        <ul class="tier-features">
+                            <li><i class="fa-solid fa-check"></i> 30-Minute Outdoor Session</li>
+                            <li><i class="fa-solid fa-check"></i> 1 Outfit Change</li>
+                            <li><i class="fa-solid fa-check"></i> 25 High-Res Retouched Photos</li>
+                            <li><i class="fa-solid fa-check"></i> Digital Gallery Download</li>
+                        </ul>
+                        <a href="https://wa.me/27820729075?text=Hi%20Nellow%20Media,%20I%20would%20like%20to%20book%20the%20Portrait%20Standard%20Package%20(R350)." target="_blank" class="book-package-btn">Book via WhatsApp</a>
+                    </div>
+
+                    <div class="price-card featured">
+                        <div class="badge-popular">Most Popular</div>
+                        <div class="tier-name">Gold Portrait</div>
+                        <div class="tier-price">R 650 <span>/ session</span></div>
+                        <ul class="tier-features">
+                            <li><i class="fa-solid fa-check"></i> 1-Hour Photoshoot Session</li>
+                            <li><i class="fa-solid fa-check"></i> Up to 3 Outfit Changes</li>
+                            <li><i class="fa-solid fa-check"></i> 50+ Professionally Retouched Photos</li>
+                            <li><i class="fa-solid fa-check"></i> 2 Printed Small Photos Included</li>
+                        </ul>
+                        <a href="https://wa.me/27820729075?text=Hi%20Nellow%20Media,%20I%20would%20like%20to%20book%20the%20Portrait%20Gold%20Package%20(R650)." target="_blank" class="book-package-btn">Book via WhatsApp</a>
+                    </div>
+
+                    <div class="price-card">
+                        <div class="tier-name">Platinum Portrait</div>
+                        <div class="tier-price">R 1,100 <span>/ session</span></div>
+                        <ul class="tier-features">
+                            <li><i class="fa-solid fa-check"></i> 2-Hour Creative Session (Multiple Locations)</li>
+                            <li><i class="fa-solid fa-check"></i> Unlimited Outfits</li>
+                            <li><i class="fa-solid fa-check"></i> 150+ Retouched High-End Photos</li>
+                            <li><i class="fa-solid fa-check"></i> Behind-the-Scenes Reels Video</li>
+                        </ul>
+                        <a href="https://wa.me/27820729075?text=Hi%20Nellow%20Media,%20I%20would%20like%20to%20book%20the%20Portrait%20Platinum%20Package%20(R1,100)." target="_blank" class="book-package-btn">Book via WhatsApp</a>
+                    </div>
+                </div>
+
+                <!-- 5. Drone Photography -->
+                <div id="pricing-drone" class="pricing-category-container">
+                    <div class="price-card">
+                        <div class="tier-name">Standard Drone</div>
+                        <div class="tier-price">R 1,500 <span>/ shoot</span></div>
+                        <ul class="tier-features">
+                            <li><i class="fa-solid fa-check"></i> 1 Flight Battery Session (approx 25 mins)</li>
+                            <li><i class="fa-solid fa-check"></i> 15 High-Resolution Aerial Photos</li>
+                            <li><i class="fa-solid fa-check"></i> 1 Short 4K Cinematic Aerial Clip</li>
+                            <li><i class="fa-solid fa-check"></i> Basic Color Grading</li>
+                        </ul>
+                        <a href="https://wa.me/27820729075?text=Hi%20Nellow%20Media,%20I%20would%20like%20to%20book%20the%20Drone%20Standard%20Package%20(R1,500)." target="_blank" class="book-package-btn">Book via WhatsApp</a>
+                    </div>
+
+                    <div class="price-card featured">
+                        <div class="badge-popular">Most Popular</div>
+                        <div class="tier-name">Gold Drone</div>
+                        <div class="tier-price">R 2,800 <span>/ shoot</span></div>
+                        <ul class="tier-features">
+                            <li><i class="fa-solid fa-check"></i> Extended Aerial Coverage (2 Batteries)</li>
+                            <li><i class="fa-solid fa-check"></i> 35+ Aerial Photos & Panorama Shots</li>
+                            <li><i class="fa-solid fa-check"></i> 1-Minute Edited Cinematic Property/Event Reel</li>
+                            <li><i class="fa-solid fa-check"></i> Licensed Safe Pilot Operation</li>
+                        </ul>
+                        <a href="https://wa.me/27820729075?text=Hi%20Nellow%20Media,%20I%20would%20like%20to%20book%20the%20Drone%20Gold%20Package%20(R2,800)." target="_blank" class="book-package-btn">Book via WhatsApp</a>
+                    </div>
+
+                    <div class="price-card">
+                        <div class="tier-name">Platinum Drone</div>
+                        <div class="tier-price">R 4,500 <span>/ shoot</span></div>
+                        <ul class="tier-features">
+                            <li><i class="fa-solid fa-check"></i> Full Half-Day Drone & Ground Videography</li>
+                            <li><i class="fa-solid fa-check"></i> 70+ Edited Photos & 4K RAW Footage</li>
+                            <li><i class="fa-solid fa-check"></i> Professional Promotional Video (Full Edit)</li>
+                            <li><i class="fa-solid fa-check"></i> FPV Drone Dynamic Shots Included</li>
+                        </ul>
+                        <a href="https://wa.me/27820729075?text=Hi%20Nellow%20Media,%20I%20would%20like%20to%20book%20the%20Drone%20Platinum%20Package%20(R4,500)." target="_blank" class="book-package-btn">Book via WhatsApp</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="services" class="section-container">
+            <h2 class="section-title">Services We Offer</h2>
+            <p class="section-subtitle">Professional visual solutions crafted with precision and creativity</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fa-solid fa-camera-retro"></i>
+                    <h4>Portrait Photography</h4>
+                    <p>Professional studio and outdoor portrait sessions tailored to bring out your personality and best angles.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fa-solid fa-champagne-glasses"></i>
+                    <h4>Events & Parties</h4>
+                    <p>Comprehensive coverage for birthdays, corporate functions, and memorable social gatherings.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fa-solid fa-drum"></i>
+                    <h4>Cultural & Traditional Ceremonies</h4>
+                    <p>Capturing heritage, Umemulo, Umembeso, Amalobolo, and Umkhehlo with authentic respect and vibrancy.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fa-solid fa-ring"></i>
+                    <h4>Weddings & Umshado</h4>
+                    <p>Full-day luxury wedding and traditional Umshado storytelling preserving your lifelong memories.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fa-solid fa-helicopter"></i>
+                    <h4>Drone Videography & Aerials</h4>
+                    <p>Breathtaking aerial views and cinematic perspective shots to make your projects and events stand out.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <h4>Graduation Shoots</h4>
+                    <p>Celebrate your hard-earned academic milestones with crisp, high-end graduation photography sessions.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="category-view" class="gallery-view">
+        <button class="back-btn" onclick="showHome()"><i class="fa-solid fa-arrow-left"></i> Back to Categories</button>
+        <h2 id="category-title" class="section-title">Category Name</h2>
+        <div class="image-grid" id="image-grid-container">
+        </div>
+    </div>
+
+    <div id="lightbox" class="lightbox-modal" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()"><i class="fa-solid fa-xmark"></i></button>
+        <img id="lightbox-img" class="lightbox-content" src="" alt="Fullscreen View" />
+    </div>
+
+    <section id="contact" class="contact-section">
+        <h2 class="section-title">Get In Touch</h2>
+        <p style="color: #ccc; font-size: 0.95rem;">Ready to capture your moments? Reach out to us directly via WhatsApp for quick bookings and inquiries.</p>
+        <a href="https://wa.me/27820729075?text=Hi%20Nellow%20Media,%20I%20saw%20your%20portfolio%20and%20want%20to%20book%20a%20session!" class="whatsapp-btn" target="_blank">
+            <i class="fa-brands fa-whatsapp fa-lg"></i> Chat on WhatsApp
+        </a>
+    </section>
+
+    <footer>
+        <p>&copy; <span id="current-year"></span> Nellow Media - Photography & Films Company. All rights reserved 💜</p>
+    </footer>
+
+    <script>
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            /*
+              GitHub Repository Folder Mapping Strategy:
+              Place files in your repo under:
+              - images/portraits/ (1.jpg, 2.jpg, 3.jpg, ...)
+              - images/weddings/ (1.jpg, 2.jpg, 3.jpg, ...)
+              - images/zulu-events/ (1.jpg, 2.jpg, 3.jpg, ...)
+              - images/birthdays/ (1.jpg, 2.jpg, 3.jpg, ...)
+              - images/drone/ (1.jpg, 2.jpg, 3.jpg, ...)
+              - images/graduation/ (1.jpg, 2.jpg, 3.jpg, ...)
+              - images/videos/ (1.mp4, 2.mp4, ...)
+            */
+
+            const folderMap = {
+                "Portraits": "images/portraits/",
+                "Weddings": "images/weddings/",
+                "Zulu Events": "images/zulu-events/",
+                "Birthday Parties": "images/birthdays/",
+                "Drone Shots": "images/drone/",
+                "Graduation": "images/graduation/",
+                "Videos": "images/videos/"
+            };
+
+            // Fallback demo images for immediate preview when folders are empty
+            const fallbackData = {
+                "Portraits": [
+                    "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&auto=format&fit=crop&q=80",
+                    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&auto=format&fit=crop&q=80",
+                    "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800&auto=format&fit=crop&q=80",
+                    "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=800&auto=format&fit=crop&q=80"
+                ],
+                "Weddings": [
+                    "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&auto=format&fit=crop&q=80",
+                    "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&auto=format&fit=crop&q=80",
+                    "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800&auto=format&fit=crop&q=80",
+                    "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&auto=format&fit=crop&q=80"
+                ],
+                "Zulu Events": [
+                    "https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&auto=format&fit=crop&q=80",
+                    "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&auto=format&fit=crop&q=80",
+                    "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&auto=format&fit=crop&q=80"
+                ],
+                "Birthday Parties": [
+                    "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=800&auto=format&fit=crop&q=80",
+                    "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&auto=format&fit=crop&q=80",
+                    "https://images.unsplash.com/photo-1464349153735-7db50ed83c84?w=800&auto=format&fit=crop&q=80"
+                ],
+                "Drone Shots": [
+                    "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800&auto=format&fit=crop&q=80",
+                    "https://images.unsplash.com/photo-1527977966376-1c8408f9f108?w=800&auto=format&fit=crop&q=80",
+                    "https://images.unsplash.com/photo-1579829366248-204fe84172f1?w=800&auto=format&fit=crop&q=80"
+                ],
+                "Graduation": [
+                    "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&auto=format&fit=crop&q=80",
+                    "https://images.unsplash.com/photo-1525921429624-479b6a26d84d?w=800&auto=format&fit=crop&q=80",
+                    "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800&auto=format&fit=crop&q=80"
+                ],
+                "Videos": [
+                    "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+                    "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
+                ]
+            };
+
+            // Generates sequence filenames (1.jpg to 12.jpg) to automatically detect user images dropped in folders
+            async function getCategoryMedia(categoryName) {
+                const folder = folderMap[categoryName];
+                if (!folder) return fallbackData[categoryName] || [];
+
+                const detectedFiles = [];
+                const maxCheck = 15; // checks 1.jpg up to 15.jpg
+
+                const extension = categoryName === 'Videos' ? 'mp4' : 'jpg';
+
+                for (let i = 1; i <= maxCheck; i++) {
+                    const path = `${folder}${i}.${extension}`;
+                    try {
+                        const exists = await checkImageExists(path);
+                        if (exists) {
+                            detectedFiles.push(path);
+                        }
+                    } catch (e) {
+                        // skip
+                    }
+                }
+
+                // If user hasn't added files yet, fall back to stunning stock photos
+                if (detectedFiles.length === 0) {
+                    return fallbackData[categoryName] || [];
+                }
+
+                return detectedFiles;
+            }
+
+            function checkImageExists(url) {
+                return new Promise((resolve) => {
+                    if (url.endsWith('.mp4')) {
+                        // For video check
+                        const vid = document.createElement('video');
+                        vid.src = url;
+                        vid.onloadedmetadata = () => resolve(true);
+                        vid.onerror = () => resolve(false);
+                    } else {
+                        const img = new Image();
+                        img.src = url;
+                        img.onload = () => resolve(true);
+                        img.onerror = () => resolve(false);
+                    }
+                });
+            }
+
+            // Initialize thumbnails on page load
+            document.addEventListener("DOMContentLoaded", async () => {
+                for (const catName of Object.keys(folderMap)) {
+                    const mediaList = await getCategoryMedia(catName);
+                    const thumb = document.getElementById(`thumb-${catName}`);
+                    if (thumb && mediaList && mediaList.length > 0) {
+                        thumb.src = mediaList[0];
+                        thumb.onerror = function() {
+                            this.src = `https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=600&auto=format&fit=crop&q=80`;
+                        };
+                    }
+                }
+            });
+
+            function switchPricingTab(tabKey) {
+                const tabs = document.querySelectorAll('.tab-btn');
+                tabs.forEach(btn => btn.classList.remove('active'));
+
+                const containers = document.querySelectorAll('.pricing-category-container');
+                containers.forEach(cont => cont.classList.remove('active'));
+
+                event.currentTarget.classList.add('active');
+                const targetContainer = document.getElementById(`pricing-${tabKey}`);
+                if (targetContainer) {
+                    targetContainer.classList.add('active');
+                }
+            }
+
+            async function openCategory(categoryName) {
+                document.getElementById('home-view').style.display = 'none';
+                const catView = document.getElementById('category-view');
+                catView.style.display = 'block';
+
+                document.getElementById('category-title').textContent = categoryName;
+
+                const gridContainer = document.getElementById('image-grid-container');
+                gridContainer.innerHTML = `<p style="color:#aaa; text-align:center; grid-column: 1/-1; padding: 40px 0;"><i class="fa-solid fa-spinner fa-spin"></i> Loading ${categoryName} gallery...</p>`;
+
+                const mediaList = await getCategoryMedia(categoryName);
+                gridContainer.innerHTML = '';
+
+                if (mediaList.length === 0) {
+                    gridContainer.innerHTML = `<p style="color:#aaa; text-align:center; grid-column: 1/-1; padding: 40px 0;">No items found in <strong>images/${categoryName.toLowerCase()}</strong> yet. Add 1.jpg, 2.jpg... to your repository!</p>`;
+                } else {
+                    mediaList.forEach(mediaUrl => {
+                        const item = document.createElement('div');
+                        item.className = 'image-item';
+
+                        if (categoryName === 'Videos') {
+                            item.innerHTML = `
+                                <video controls preload="metadata">
+                                    <source src="${mediaUrl}" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>`;
+                        } else {
+                            item.innerHTML = `<img src="${mediaUrl}" alt="${categoryName} photo" onclick="openLightbox('${mediaUrl}')" onerror="this.src='https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=600&auto=format&fit=crop&q=80'">`;
+                        }
+                        gridContainer.appendChild(item);
+                    });
+                }
+
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            function showHome() {
+                document.getElementById('category-view').style.display = 'none';
+                document.getElementById('home-view').style.display = 'block';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            function openLightbox(imgUrl) {
+                const lightbox = document.getElementById('lightbox');
+                const lightboxImg = document.getElementById('lightbox-img');
+                lightboxImg.src = imgUrl;
+                lightbox.style.display = 'flex';
+            }
+
+            function closeLightbox() {
+                document.getElementById('lightbox').style.display = 'none';
+            }
+    </script>
+</body>
+</html>
